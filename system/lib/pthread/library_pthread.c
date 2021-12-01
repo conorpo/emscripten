@@ -839,6 +839,10 @@ weak_alias(dummy_tsd, __pthread_tsd_main);
 // See system/lib/README.md for static constructor ordering.
 __attribute__((constructor(48)))
 void __emscripten_init_main_thread(void) {
+#ifndef NDEBUG
+  _emscripten_create_profiler_block(&__main_pthread);
+  emscripten_set_thread_name(&__main_pthread, "Browser main thread");
+#endif
   __emscripten_init_main_thread_js(&__main_pthread);
 
   // The pthread struct has a field that points to itself - this is used as

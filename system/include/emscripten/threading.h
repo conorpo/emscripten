@@ -279,7 +279,12 @@ void emscripten_thread_sleep(double msecs);
 #define emscripten_set_current_thread_status(newStatus)
 #define emscripten_conditional_set_current_thread_status(expectedStatus, newStatus)
 #define emscripten_set_thread_name(threadId, name)
+#define  _emscripten_create_profiler_block(thread);
 #else
+// Internal function.  Allocates the thread profile block for the given
+// thread.
+void _emscripten_create_profiler_block(pthread_t thread);
+
 // Sets the profiler status of the calling thread. This is a no-op if thread
 // profiling is not active.
 // This is an internal function and generally not intended for user code.
