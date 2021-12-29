@@ -893,6 +893,7 @@ class libc(DebugLibrary, AsanInstrumentedLibrary, MuslInternalLibrary, MTLibrary
           'asctime.c',
           'ctime.c',
           'gmtime.c',
+          'gmtime_r.c',
           'localtime.c',
           'nanosleep.c',
           'clock_nanosleep.c',

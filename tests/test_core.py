@@ -2512,6 +2512,10 @@ The current type of b is: 9
   def test_gmtime(self):
     self.do_core_test('test_gmtime.c')
 
+  def test_gmtime_r(self):
+    # Confirm that gmtime_r does not leak when called in isolation.
+    self.do_core_test('test_gmtime_r.c')
+
   def test_strptime_tm(self):
     self.do_core_test('test_strptime_tm.c')
 
